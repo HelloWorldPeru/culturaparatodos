@@ -14,11 +14,6 @@ module.exports.routes = {
       view: 'home/index'
   },
 
-  '/school': {
-      controller: 'school',
-      action: 'index'
-  },
-
   '/login': {
       controller: 'home',
       action: 'login'
@@ -28,9 +23,11 @@ module.exports.routes = {
       controller: 'home',
       action: 'signup'
   },
+
   '/event/detail/:id?': {
       controller: 'event',
       action: 'data'
   }
+    
 };
 

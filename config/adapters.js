@@ -22,16 +22,16 @@ module.exports.adapters = {
 
 
   mongo: {
-        module   : 'sails-mongo',
-        host     : 'localhost',
-        port     : 27017,
-        user     : '',
-        password : '',
-        database : 'sailscultura'
+//        module   : 'sails-mongo',
+//        host     : 'localhost',
+//        port     : 27017,
+//        user     : '',
+//        password : '',
+//        database : 'sailscultura'
 
         // OR
-        // module   : 'sails-mongo',
-        // url      : 'mongodb://USER:PASSWORD@HOST:PORT/DB',
+        module   : 'sails-mongo',
+        url      : 'mongodb://jonathan:jquery@ds037997.mongolab.com:37997/heroku_app24022045'
 
    },
 
