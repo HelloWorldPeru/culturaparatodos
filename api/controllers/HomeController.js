@@ -19,15 +19,15 @@ HomeController = {
     signup: function(req, res) {
         var email = req.param("email");
         var password = req.param("password");
-
-        User.findByUsername(username).done(function(err, usr){
+        User.findByEmail(email).done(function(err, usr){
             if(err) {
                 res.send(500, {error:"DB Error"});
             } else if(usr.length > 0) {
                 res.send(400, {error: "Username already Taken"});
             } else {
-                Users.create({email: email, password: password}).done(function(error, user){
+                User.create({email: email, password: password}).done(function(error, user){
                     if(error) {
+                        console.log(error);
                         res.send(500, {error: "DB Error"})
                     } else {
                         req.session.user = user;
@@ -38,10 +38,10 @@ HomeController = {
         });
     },
     login: function(req, res) {
-        var username = req.param("username");
+        var email = req.param("email");
         var password = req.param("password");
 
-        User.findOne({ username: username }).done(function(err, usr){
+        User.findOne({ email: email }).done(function(err, usr){
             if(err){
                 res.send(500, {error: "DB Error"});
             } else {
