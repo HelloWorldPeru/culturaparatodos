@@ -14,6 +14,11 @@ module.exports.routes = {
       view: 'home/index'
   },
 
+  '/school': {
+      controller: 'school',
+      action: 'index'
+  },
+
   '/login': {
       controller: 'home',
       action: 'login'
