@@ -11,23 +11,63 @@ module.exports = {
   attributes: {
 
       name: {
-          type: 'STRING'
+          type: 'STRING',
+          required: true
       },
 
       date: {
-          type: 'DATE'
+          type: 'STRING',
+          required: true
       },
 
       start: {
-          type: 'TIME'
+          type: 'STRING',
+          required: true
       },
 
       end: {
-          type: 'TIME'
+          type: 'STRING',
+          required: true
       },
 
-      school: {
+      school:{
           type: 'STRING'
+      },
+
+      latitude: {
+          type: 'STRING',
+          required: true
+      },
+
+      longitude: {
+          type: 'STRING',
+          required: true
+      },
+
+      point: function() {
+          return this.latitude + ',' + this.longitude;
+      },
+
+      getSchool: function() {
+          data = 'a';
+          hola = School.findOne(this.school).done(function(err, school) {
+              data = school;
+              console.log(data);
+              return data
+          });
+          console.log(data);
+          console.log(hola);
+          return data;
+      },
+
+      event: function() {
+          return this.name + ' ' + this.date;
+      },
+
+      toJSON: function() {
+          var obj = this.toObject();
+          delete obj.password;
+          return obj;
       }
     
   }

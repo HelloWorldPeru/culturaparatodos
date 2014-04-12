@@ -12,6 +12,20 @@ module.exports.routes = {
 
   '/': {
       view: 'home/index'
+  },
+
+  '/login': {
+      controller: 'home',
+      action: 'login'
+  },
+
+  '/signup': {
+      controller: 'home',
+      action: 'signup'
+  },
+  '/event/detail/:id?': {
+      controller: 'event',
+      action: 'data'
   }
 };
 

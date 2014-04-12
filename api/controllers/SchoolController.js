@@ -1,5 +1,5 @@
 /**
- * EventController
+ * SchoolController
  *
  * @module      :: Controller
  * @description	:: A set of functions called `actions`.
@@ -15,14 +15,16 @@
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
-EventController = {
-    data: function(req, res) {
-        var event_id = req.param("id");
-        var event = Event.findOne(event_id).done(function(err, event) {
-            res.send(event.getSchool());
-        });
-    }
+module.exports = {
+    
+  
 
+
+  /**
+   * Overrides for the settings in `config/controllers.js`
+   * (specific to SchoolController)
+   */
+  _config: {}
+
+  
 };
-
-module.exports = EventController;

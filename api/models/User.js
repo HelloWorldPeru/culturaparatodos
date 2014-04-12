@@ -19,13 +19,30 @@ module.exports = {
       },
 
       email: {
-          type: 'STRING'
+          type: 'email',
+          required: true
       },
 
       password: {
-          type: 'STRING'
+          type: 'string',
+          minLength: 6,
+          required: true,
+          columnName: 'encrypted_password'
       }
     
+  },
+
+  beforeCreate: function(values, next) {
+      var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      var hasher = require("password-hash");
+      var password = hasher.generate(values.password);
+      var text = '';
+      for( var i=0; i < 5; i++ )
+          text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+      values.password = password;
+      values.token = text;
+      next();
   }
 
 };
