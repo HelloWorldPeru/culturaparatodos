@@ -21,28 +21,26 @@ HomeController = {
         var amount = 0;
         var total = 0;
 
-
         Event.findOne(event).done(function(err, data) {
-            total = data.cost;
-        });
-        if(total > 0){
-            Donation.findByEvent(event).done(function(err, events){
-
-                for (var i=0; i<events.length; i++)
-                {
-                    amount += parseFloat(events[i].amount);
-                }
-                res.send({
-                    'amount':amount,
-                    'percentaje': (amount * 100) /total
+            total = parseFloat(data['cost']);
+            if(total > 0){
+                Donation.findByEvent(event).done(function(err, donations){
+                    for (var i=0; i<donations.length; i++)
+                    {
+                        amount += parseFloat(donations[i]['amount']);
+                    }
+                    res.send({
+                        'amount':amount,
+                        'percentaje': (amount * 100) /total
+                    });
                 });
-            });
-        } else {
-            res.send({
-                'amount':"0",
-                'percentaje': "100%"
-            });
-        }
+            } else {
+                res.send({
+                    'amount':"0",
+                    'percentaje': "100"
+                });
+            }
+        });
     }
 };
 
