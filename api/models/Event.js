@@ -59,6 +59,9 @@ module.exports = {
           type: 'STRING',
           required: true
       },
+      participate: {
+          type: 'json'
+      },
 
       point: function() {
           return this.latitude + ',' + this.longitude;

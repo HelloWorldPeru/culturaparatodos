@@ -23,10 +23,21 @@ module.exports.routes = {
       controller: 'home',
       action: 'signup'
   },
-
+  '/donation/event/:id?': {
+        controller: 'donation',
+        action: 'getdonation'
+  },
   '/event/detail/:id?': {
       controller: 'event',
       action: 'data'
+  },
+  '/event/free': {
+       controller: 'event',
+       action: 'free'
+  },
+  '/event/pay': {
+       controller: 'event',
+       action: 'pay'
   }
 
 };

@@ -28,10 +28,6 @@ module.exports = {
           defaultsTo: 'USER'
       },
 
-      school: {
-          type: 'STRING'
-      },
-
       photo: {
           type: 'STRING',
           defaultsTo: 'http://www.security-camera-warehouse.com/images/profile.png'

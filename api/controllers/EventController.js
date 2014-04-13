@@ -18,8 +18,25 @@
 EventController = {
     data: function(req, res) {
         var event_id = req.param("id");
-        var event = Event.findOne(event_id).done(function(err, event) {
+        var event = Event.findByEvent(event_id).done(function(err, event) {
             res.send(event.getSchool());
+        });
+    },
+    free: function(req, res) {
+        var filter = req.param("filter");
+        if(filter == undefined || filter == ''){
+            Event.find().where({ cost: '0' }).exec(function(err, events) {
+                res.send(events);
+            });
+        } else {
+            Event.find().where({ cost: '0' }).where({ tematica: filter }).exec(function(err, events) {
+                res.send(events);
+            });
+        }
+    },
+    pay: function(req, res) {
+        Event.find().where({ cost: { '!=': '0' }}).exec(function(err, events) {
+            res.send(events);
         });
     }
 

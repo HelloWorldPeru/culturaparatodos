@@ -9,11 +9,20 @@
 module.exports = {
 
   attributes: {
-  	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
-    
+
+      user: {
+          type: 'STRING',
+          required: true
+      },
+      event: {
+          type: 'STRING',
+          required: true
+      },
+      amount: {
+          type: 'STRING',
+          required: true
+      }
+
   }
 
 };

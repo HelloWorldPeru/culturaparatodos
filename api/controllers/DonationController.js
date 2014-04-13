@@ -15,16 +15,35 @@
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
-module.exports = {
-    
-  
+HomeController = {
+    getdonation: function (req, res) {
+        var event = req.param("id");
+        var amount = 0;
+        var total = 0;
 
 
-  /**
-   * Overrides for the settings in `config/controllers.js`
-   * (specific to DonationController)
-   */
-  _config: {}
+        Event.findOne(event).done(function(err, data) {
+            total = data.cost;
+        });
+        if(total > 0){
+            Donation.findByEvent(event).done(function(err, events){
 
-  
+                for (var i=0; i<events.length; i++)
+                {
+                    amount += parseFloat(events[i].amount);
+                }
+                res.send({
+                    'amount':amount,
+                    'percentaje': (amount * 100) /total
+                });
+            });
+        } else {
+            res.send({
+                'amount':"0",
+                'percentaje': "100%"
+            });
+        }
+    }
 };
+
+module.exports = HomeController;
