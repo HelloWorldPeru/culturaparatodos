@@ -47,6 +47,10 @@ module.exports = {
           required: true
       },
 
+      photo: {
+          type: 'STRING'
+      },
+
       longitude: {
           type: 'STRING',
           required: true
