@@ -62,6 +62,9 @@ module.exports = {
           type: 'STRING',
           required: true
       },
+      entry: {
+          type: 'STRING'
+      },
       participate: {
           type: 'json'
       },
@@ -71,14 +74,11 @@ module.exports = {
       },
 
       getSchool: function() {
-          data = 'a';
           hola = School.findOne(this.school).done(function(err, school) {
               data = school;
               console.log(data);
               return data
           });
-          console.log(data);
-          console.log(hola);
           return data;
       },
 
