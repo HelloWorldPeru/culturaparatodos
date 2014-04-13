@@ -32,6 +32,11 @@ module.exports = {
             type: 'STRING',
             required: true
         },
+        type: {
+            type: 'STRING',
+            required: true
+        },
+
 
         point: function() {
             return this.latitude + ',' + this.longitude;

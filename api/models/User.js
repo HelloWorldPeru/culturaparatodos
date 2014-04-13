@@ -23,6 +23,15 @@ module.exports = {
           required: true
       },
 
+      role: {
+          type: 'STRING',
+          defaultsTo: 'USER'
+      },
+
+      school: {
+          type: 'STRING'
+      },
+
       password: {
           type: 'string',
           minLength: 6,

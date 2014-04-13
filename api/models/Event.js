@@ -20,12 +20,7 @@ module.exports = {
           required: true
       },
 
-      start: {
-          type: 'STRING',
-          required: true
-      },
-
-      end: {
+      schedule: {
           type: 'STRING',
           required: true
       },
@@ -34,12 +29,29 @@ module.exports = {
           type: 'STRING'
       },
 
+      tematica: {
+          type: 'STRING'
+      },
+
+      descrip: {
+          type: 'STRING'
+      },
+
       latitude: {
           type: 'STRING',
           required: true
       },
 
+      status: {
+          type: 'STRING',
+          required: true
+      },
+
       longitude: {
+          type: 'STRING',
+          required: true
+      },
+      cost: {
           type: 'STRING',
           required: true
       },
