@@ -10,6 +10,9 @@ module.exports = {
 
   attributes: {
 
+      owner: {
+          type: 'STRING'
+      },
       name: {
           type: 'STRING',
           required: true

@@ -38,6 +38,10 @@ module.exports = {
           minLength: 6,
           required: true,
           columnName: 'encrypted_password'
+      },
+      influence: {
+          type: 'STRING',
+          defaultsTo: '0'
       }
     
   },

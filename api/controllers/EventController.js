@@ -35,8 +35,15 @@ EventController = {
         }
     },
     pay: function(req, res) {
-        Event.find().where({ cost: { '!=': '0' }}).exec(function(err, events) {
-            res.send(events);
+        var data = [];
+        Event.find().exec(function(err, events) {
+            for(i=0; i< events.length; i++){
+                if(events[i]['cost'] != '0'){
+                    data.push(events[i]);
+                }
+            }
+
+            res.send(data);
         });
     }
 
